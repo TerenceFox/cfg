@@ -1,0 +1,15 @@
+{
+  "segments": [
+    "virtual_env",
+    "ssh",
+    "cwd",
+    "git",
+    "git_stash",
+    "newline",
+    "root"
+  ],
+  "cwd": {
+    "max_depth": 4
+  },
+  "theme": "~/.config/powerline-shell/snazzy.py"
+}
