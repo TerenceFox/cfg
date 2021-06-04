@@ -130,9 +130,8 @@ function _update_ps1() {
     PS1=$(powerline-shell $?)
 }
 
-if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
-    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+if [[ $TERM != linux &&  $OS != Windows_NT && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
+   PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
 fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
-alias config='/usr/bin/git --git-dir=/home/terence/.cfg/ --work-tree=/home/terence'
