@@ -1,4 +1,4 @@
-jjjalias obsidian='/opt/./Obsidian-0.11.13.AppImage'
+alias obsidian='/opt/./Obsidian-0.11.13.AppImage'
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -24,3 +24,5 @@ alias l='ls -CF'
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 alias config='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+
+alias trim='git branch | grep -v "main" | xargs git branch -D'
