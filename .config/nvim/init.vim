@@ -38,7 +38,7 @@ let g:NERDTreeMinimalUI = 1
 let g:NERDTreeIgnore = []
 let g:NERDTreeStatusline = ''
 " Toggle
-nnoremap <silent> <Leader>n :NERDTreeToggle<CR>
+nnoremap <silent> <c-b> :NERDTreeToggle<CR>
 
 " Tab sanity
 set expandtab
@@ -90,7 +90,7 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 " Fuzzy File Finder open from popup
-nnoremap <Leader>p :FZF<CR>
+nnoremap <c-p> :FZF<CR>
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-s': 'split',
@@ -119,11 +119,20 @@ nnoremap <A-l> <C-w>l
 
 " open terminal on ctrl + n
 function! OpenTerminal()
-    tab terminal
+    tabnew 
+    terminal
     startinsert
 endfunction
-nnoremap <c-n> :call OpenTerminal()<CR>
+nnoremap <C-n> :call OpenTerminal()<CR>
 
 func! g:CustomNeuronIDGenerator(title)
 	return substitute((a:title + strftime('%Y%m%d%H%M')), " ", "-", "g")
 endf
+
+" Tab navigation like Firefox.
+nnoremap <C-S-tab> :tabprevious<CR>
+nnoremap <C-tab>   :tabnext<CR>
+nnoremap <C-t>     :tabnew<CR>
+inoremap <C-S-tab> <Esc>:tabprevious<CR>i
+inoremap <C-tab>   <Esc>:tabnext<CR>i
+inoremap <C-t>     <Esc>:tabnew<CR>
