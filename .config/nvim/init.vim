@@ -1,8 +1,5 @@
 " Plugin stuff
 call plug#begin("~/.vim/plugged")
-  " Theme
-  Plug 'connorholyday/vim-snazzy'
-
   " Language Client
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver']
@@ -30,7 +27,7 @@ endif
 
 " Theme
 syntax enable
-colorscheme snazzy
+colorscheme zenburn
 set number
 let mapleader = ","
 let g:NERDTreeShowHidden = 1
