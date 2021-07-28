@@ -1,4 +1,3 @@
-" Plugin stuff
 call plug#begin("~/.vim/plugged")
   " Language Client
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -82,9 +81,13 @@ inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
 
 " GoTo code navigation.
 nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gdt :call CocAction('jumpDefinition', 'tabe')<CR>
 nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gyt :call CocAction('jumpTypeDefinition', 'tabe')<CR>
 nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> git :call CocAction('jumpImplmentation', 'tabe')<CR>
 nmap <silent> gr <Plug>(coc-references)
+nmap <silent> grt :call CocAction('jumpReferences', 'tabe')<CR>
 
 " Fuzzy File Finder open from popup
 nnoremap <c-p> :FZF<CR>
