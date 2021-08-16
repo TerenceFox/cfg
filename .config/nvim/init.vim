@@ -1,7 +1,7 @@
 call plug#begin("~/.vim/plugged")
   " Language Client
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
-  let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver']
+  let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-omnisharp']
   " TypeScript Highlighting
   Plug 'leafgarland/typescript-vim'
   Plug 'peitalin/vim-jsx-typescript'
@@ -124,10 +124,6 @@ function! OpenTerminal()
     startinsert
 endfunction
 nnoremap <C-n> :call OpenTerminal()<CR>
-
-func! g:CustomNeuronIDGenerator(title)
-	return substitute((a:title + strftime('%Y%m%d%H%M')), " ", "-", "g")
-endf
 
 " Tab navigation like Firefox.
 nnoremap <C-S-tab> :tabprevious<CR>
