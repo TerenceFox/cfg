@@ -1,3 +1,7 @@
+if has('win32') || has('win64')
+        let &shell='cmd.exe'
+endif
+
 call plug#begin("~/.vim/plugged")
   " Language Client
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -16,7 +20,6 @@ call plug#begin("~/.vim/plugged")
   " File Search
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
-  Plug 'fiatjaf/neuron.vim'
 call plug#end()
 
 " Enable theming support
@@ -91,6 +94,7 @@ nmap <silent> grt :call CocAction('jumpReferences', 'tabe')<CR>
 
 " Fuzzy File Finder open from popup
 nnoremap <c-p> :FZF<CR>
+nnoremap <Leader>p :Ag<CR>
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-s': 'split',
@@ -98,8 +102,7 @@ let g:fzf_action = {
   \}
 " requires silversearcher-ag
 " used to ignore gitignore files
-let $FZF_DEFAULT_COMMAND = 'ag -g ""'
-
+let $FZF_DEFAULT_COMMAND = 'ag -g ""' 
 " open new split panes to right
 set splitright
 

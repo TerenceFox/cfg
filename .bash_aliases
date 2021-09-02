@@ -25,6 +25,7 @@ alias l='ls -CF'
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 alias config='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias lg="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+alias gbr="git branch | grep -v 'main' | xargs git branch -D"
 alias nvimcfg='nvim ~/.config/nvim/init.vim'
 alias config='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias md="cd ~/code/IR-MaterialDesigner/src/MaterialDesigner"
