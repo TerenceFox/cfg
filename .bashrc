@@ -135,3 +135,7 @@ if [[ $TERM != linux &&  $OS != Windows_NT && ! $PROMPT_COMMAND =~ _update_ps1 ]
 fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+if [[ -n "$PS1" ]] && [[ -z "$TMUX" ]] && [[ -n "$SSH_CONNECTION" ]]; then   
+  tmux attach-session -t ssh_tmux || tmux new-session -s ssh_tmux 
+fi
