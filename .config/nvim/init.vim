@@ -2,7 +2,9 @@ if has('win32') || has('win64')
         let &shell='cmd.exe'
 endif
 
-call plug#begin("~/.vim/plugged")
+set encoding=utf-8
+
+call plug#begin()
   " Language Client
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   let g:coc_global_extensions = [
