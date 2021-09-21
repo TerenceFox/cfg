@@ -2,7 +2,9 @@ if has('win32') || has('win64')
         let &shell='cmd.exe'
 endif
 
-call plug#begin("~/.vim/plugged")
+set encoding=utf-8
+
+call plug#begin()
   " Language Client
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   let g:coc_global_extensions = [
@@ -46,6 +48,7 @@ let g:NERDTreeShowHidden = 1
 let g:NERDTreeMinimalUI = 1
 let g:NERDTreeIgnore = []
 let g:NERDTreeStatusline = ''
+<<<<<<< HEAD
 
 " Toggle NerdTree
 nnoremap <silent> <c-a> :NERDTreeToggle<CR>
