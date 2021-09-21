@@ -5,11 +5,21 @@ endif
 call plug#begin("~/.vim/plugged")
   " Language Client
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
-  let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-omnisharp']
+  let g:coc_global_extensions = [
+              \ 'coc-emmet', 
+              \ 'coc-css', 
+              \ 'coc-html', 
+              \ 'coc-json',
+              \ 'coc-prettier', 
+              \ 'coc-tsserver', 
+              \ 'coc-omnisharp',
+              \ 'coc-deno']
   " TypeScript Highlighting
   Plug 'leafgarland/typescript-vim'
   Plug 'peitalin/vim-jsx-typescript'
-
+  " Airline
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
   " Bracket completion
   Plug 'jiangmiao/auto-pairs'
 
@@ -36,8 +46,9 @@ let g:NERDTreeShowHidden = 1
 let g:NERDTreeMinimalUI = 1
 let g:NERDTreeIgnore = []
 let g:NERDTreeStatusline = ''
-" Toggle
-nnoremap <silent> <c-b> :NERDTreeToggle<CR>
+
+" Toggle NerdTree
+nnoremap <silent> <c-a> :NERDTreeToggle<CR>
 
 " Tab sanity
 set expandtab
@@ -135,3 +146,11 @@ nnoremap <C-t>     :tabnew<CR>
 inoremap <C-S-tab> <Esc>:tabprevious<CR>i
 inoremap <C-tab>   <Esc>:tabnext<CR>i
 inoremap <C-t>     <Esc>:tabnew<CR>
+
+" Air-line make powerline work and set theme
+let g:airline_powerline_fonts = 1  
+let g:airline_theme='zenburn'
+
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {} 
+endif
