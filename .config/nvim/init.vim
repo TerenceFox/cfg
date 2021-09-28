@@ -19,9 +19,11 @@ call plug#begin()
   " TypeScript Highlighting
   Plug 'leafgarland/typescript-vim'
   Plug 'peitalin/vim-jsx-typescript'
+  Plug 'junegunn/vim-easy-align'
   " Airline
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
+  Plug 'navarasu/onedark.nvim.git'
   " Bracket completion
   Plug 'jiangmiao/auto-pairs'
 
@@ -156,3 +158,11 @@ let g:airline_theme='zenburn'
 if !exists('g:airline_symbols')
   let g:airline_symbols = {} 
 endif
+
+" trigger `autoread` when files changes on disk
+set autoread
+autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif     
+
+" notification after file change
+autocmd FileChangedShellPost *
+    \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
