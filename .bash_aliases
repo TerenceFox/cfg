@@ -29,3 +29,4 @@ alias gbr="git branch | grep -v 'main' | xargs git branch -D"
 alias nvimcfg='nvim ~/.config/nvim/init.vim'
 alias config='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias md="cd ~/code/IR-MaterialDesigner/src/MaterialDesigner"
+alias config-ls="config ls-tree --full-tree -r --name-only HEAD"

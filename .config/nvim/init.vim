@@ -166,3 +166,6 @@ autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checkti
 " notification after file change
 autocmd FileChangedShellPost *
     \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+
+" Copy/paste in Windows
+set clipboard^=unnamed,unnamedplus
