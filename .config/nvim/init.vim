@@ -15,10 +15,12 @@ call plug#begin()
               \ 'coc-prettier', 
               \ 'coc-tsserver', 
               \ 'coc-omnisharp',
-              \ 'coc-deno']
+              \ 'coc-deno',
+              \ 'coc-graphql']
   " TypeScript Highlighting
   Plug 'leafgarland/typescript-vim'
   Plug 'peitalin/vim-jsx-typescript'
+  Plug 'jparise/vim-graphql' 
   Plug 'junegunn/vim-easy-align'
   " Airline
   Plug 'vim-airline/vim-airline'
