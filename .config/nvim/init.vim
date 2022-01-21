@@ -25,11 +25,9 @@ call plug#begin()
   Plug 'vim-airline/vim-airline-themes'
   " Bracket completion
   Plug 'jiangmiao/auto-pairs'
-
   " File Explorer with Icons
   Plug 'scrooloose/nerdtree'
   Plug 'ryanoasis/vim-devicons'
-
   " File Search
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
