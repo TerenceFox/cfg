@@ -23,7 +23,6 @@ call plug#begin()
   " Airline
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
-  Plug 'navarasu/onedark.nvim.git'
   " Bracket completion
   Plug 'jiangmiao/auto-pairs'
 
@@ -38,12 +37,13 @@ call plug#end()
 
 " Enable theming support
 if (has("termguicolors"))
- set termguicolors
+ " set termguicolors
 endif
 
 " Theme
 syntax enable
-colorscheme zenburn
+set background=dark
+colorscheme solarized
 set number
 let mapleader = ","
 let g:NERDTreeShowHidden = 1
@@ -153,7 +153,7 @@ inoremap <C-t>     <Esc>:tabnew<CR>
 
 " Air-line make powerline work and set theme
 let g:airline_powerline_fonts = 1  
-let g:airline_theme='zenburn'
+let g:airline_theme='solarized'
 
 if !exists('g:airline_symbols')
   let g:airline_symbols = {} 
