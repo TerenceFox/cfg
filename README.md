@@ -1,11 +1,11 @@
 # Setting Up A New Dev Environment
 
-Install Python if not installed
-Install Git if not installed
-Install pip if not installed
-Install Node
-Windows: Install from the website, include all tools (adds Chocolately to use for the rest of the installs)
-Linux: the package managers are always outdated, use this:
+Install Python if not installed  
+Install Git if not installed  
+Install pip if not installed  
+Install Node  
+Windows: Install from the website, include all tools (adds Chocolately to use for the rest of the installs)  
+Linux: the package managers are always outdated, use this:  
 ```
 curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash -
 sudo apt-get install -y nodejs`
