@@ -33,6 +33,8 @@ call plug#begin()
   " File Search
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
+  " Vim-Wiki
+  Plug 'vimwiki/vimwiki'
 call plug#end()
 
 " Enable theming support
@@ -66,6 +68,7 @@ autocmd Filetype css setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 autocmd Filetype scss setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 autocmd Filetype json setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 autocmd Filetype javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
+autocmd Filetype typescript setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 autocmd FileType make setlocal noexpandtab
 
 " Prettier command to format butter
@@ -169,3 +172,10 @@ autocmd FileChangedShellPost *
 
 " Copy/paste in Windows
 set clipboard^=unnamed,unnamedplus
+
+" Vimwiki settings
+set nocompatible
+filetype plugin on
+syntax on
+let g:vimwiki_list = [{'path': '~/vimwiki/',
+                      \ 'syntax': 'markdown', 'ext': '.md'}]
