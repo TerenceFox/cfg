@@ -54,7 +54,14 @@ let g:NERDTreeIgnore = []
 let g:NERDTreeStatusline = ''
 
 " Toggle NerdTree
-nnoremap <silent> <c-a> :NERDTreeToggle<CR>
+nnoremap <silent> <c-a> :call NERDTreeToggleAndRefresh()<CR>
+
+function NERDTreeToggleAndRefresh()
+  :NERDTreeToggle
+  if g:NERDTree.IsOpen()
+    :NERDTreeRefreshRoot
+  endif
+endfunction
 
 " Tab sanity
 set expandtab
