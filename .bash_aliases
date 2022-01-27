@@ -1,5 +1,3 @@
-alias obsidian='/opt/./Obsidian-0.11.13.AppImage'
-
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
@@ -23,10 +21,14 @@ alias l='ls -CF'
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-alias config='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias lg="git log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
-alias gbr="git branch | grep -v 'main' | xargs git branch -D"
+# Remove unused branches
+alias gitrm="git branch | grep -v 'main' | xargs git branch -D"
+# Get to my Neovim config file
 alias nvimcfg='nvim ~/.config/nvim/init.vim'
+# Use git commands on the dotfiles bare repo from anywhere
 alias config='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-alias md="cd ~/code/IR-MaterialDesigner/src/MaterialDesigner"
+# See all files tracked in dotfiles repo
 alias config-ls="config ls-tree --full-tree -r --name-only HEAD"
+# Open right to Vimwiki index
+alias wiki="nvim ~/vimwiki/ -c VimwikiIndex"

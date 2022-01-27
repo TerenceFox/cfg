@@ -35,6 +35,8 @@ call plug#begin()
   Plug 'junegunn/fzf.vim'
   " Vim-Wiki
   Plug 'vimwiki/vimwiki'
+  " JSX support
+  Plug 'maxmellon/vim-jsx-pretty'
 call plug#end()
 
 " Enable theming support
@@ -65,8 +67,9 @@ endfunction
 
 " Tab sanity
 set expandtab
-set tabstop=4
-set shiftwidth=4" Show hidden characters, tabs, trailing whitespace
+set tabstop=2
+set shiftwidth=2
+" Show hidden characters, tabs, trailing whitespace
 set list
 set listchars=tab:→\ ,trail:·,nbsp:·" Different tab/space stops"
 autocmd Filetype yaml setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
@@ -186,3 +189,14 @@ filetype plugin on
 syntax on
 let g:vimwiki_list = [{'path': '~/vimwiki/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
+command! Diary VimwikiDiaryIndex
+
+augroup vimwikigroup
+    autocmd!
+    " automatically update links on read diary
+    autocmd BufRead,BufNewFile diary.md VimwikiDiaryGenerateLinks
+augroup end
+
+" Prettify JSX
+let g:vim_jsx_pretty_colorful_config = 1
+
