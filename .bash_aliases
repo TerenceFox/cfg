@@ -31,4 +31,4 @@ alias config='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 # See all files tracked in dotfiles repo
 alias config-ls="config ls-tree --full-tree -r --name-only HEAD"
 # Open right to Vimwiki index
-alias wiki="nvim ~/vimwiki/ -c VimwikiIndex"
+alias wiki="cd ~/wiki && nvim ~/vimwiki/ -c VimwikiIndex"

@@ -187,7 +187,7 @@ set clipboard^=unnamed,unnamedplus
 set nocompatible
 filetype plugin on
 syntax on
-let g:vimwiki_list = [{'path': '~/vimwiki/',
+let g:vimwiki_list = [{'path': '~/wiki/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
 command! Diary VimwikiDiaryIndex
 
