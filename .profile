@@ -28,7 +28,18 @@ fi
 
 # Reroute npm global packages for WSL and MacOS
 export PATH=~/.npm-global/bin:$PATH
+
 # NVM
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Homebrew 
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# asdf
+. /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+# supress zsh message
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
