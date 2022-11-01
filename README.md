@@ -19,6 +19,13 @@ echo ". $HOME/.asdf/asdf.sh" > .bashrc
 echo ". $HOME/.asdf/completions/asdf.bash" > .bashrc
 ```
 - Use asdf to install specific needed languages to precisely control their versions based on project needs
+```
+asdf plugin add <plugin name> <gitrepo_url>
+asdf install <plugin name> <version>
+asdf global <plugin name> <version>
+```
+
+- **Note:** Asdf keeps global target versions in .tool-versions, however, you probably want to configure this machine.
 - Install a NerdFont
 
 - Install powerline-shell
