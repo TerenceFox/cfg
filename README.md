@@ -1,41 +1,45 @@
 # Setting Up A New Dev Environment
 
-Install Python if not installed  
-Install Git if not installed  
-Install pip if not installed  
-Install Node  
-Windows: Install from the website, include all tools (adds Chocolately to use for the rest of the installs)  
-Linux: the package managers are always outdated, use this:  
+## Languages & Runtimes
+
+- Install Git if not installed- 
+
+**Note:**For Windows, install from the website, include all tools (adds Chocolately to use for the rest of the installs)  
+- macOS: Install Homebrew from the website
+- Linux & macOS: Install asdf:
+```sh
+
+# MacOS
+brew install asdf
+
+# Linux
+apt install curl git
+git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch <latest>
+echo ". $HOME/.asdf/asdf.sh" > .bashrc
+echo ". $HOME/.asdf/completions/asdf.bash" > .bashrc
 ```
-curl -fsSL https://deb.nodesource.com/setup_14.x | sudo -E bash -
-sudo apt-get install -y nodejs`
+- Use asdf to install specific needed languages to precisely control their versions based on project needs
+- Install a NerdFont
+
+- Install powerline-shell
+```
+git clone https://github.com/b-ryan/powerline-shell
+cd powerline-shell
+python setup.py install
 ```
 
-Install a NerdFont
-
-Install powerline-shell
-```
-pip install powerline-shell
-```
-
-Create a new SSH key:
+- Create a new SSH key:
 ```
 ssh-keygen -t rsa -b 4096
 ```
+- Copy the public key to Github
 
-Show the public key:
-```
-less .ssh/id_rsa.pub
-```
-
-Copy it to GitHub
-
-Use the script:
+- Use the script:
 ```
 curl -Lks http://bit.do/tfcfg | /bin/bash
 ```
 
-Install Neovim
+- Install Neovim
 ```ubuntu
 sudo apt-get install -y neovim fuse libfuse2 git python3-pip ack-grep
 ```
@@ -44,11 +48,16 @@ sudo apt-get install -y neovim fuse libfuse2 git python3-pip ack-grep
 choco install neovim
 ```
 
+```macoOS
+brew install neovim
+```
+
 Install Plug
+- Linux and macOS:
 ```ubuntu
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
-
+- Powershell script for Windows:
 ```win (Powershell)
 md ~\AppData\Local\nvim\autoload
 $uri = 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
@@ -61,7 +70,7 @@ $uri = 'https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 ```
 j
 
-Windows only: put the autoload files in the Windows autoload directory.
+- Windows only: put the autoload files in the Windows autoload directory.
 **Note:** Windows uses different autoload directories which is just terrible. In Windows it's `%UserProfile%/AppData/Local/nvim`, as you can see in the script above which just stuck `plug.vim` there. So, extra steps:
 
 - Create a one-line `init.vim` in the autoload directory root with the following to have it point to the right one in the dotfiles repo, this way you don't need to maintain it in two places:

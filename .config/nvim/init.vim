@@ -16,6 +16,7 @@ call plug#begin()
               \ 'coc-tsserver', 
               \ 'coc-omnisharp',
               \ 'coc-deno',
+              \ 'coc-go',
               \ 'coc-graphql']
   " TypeScript Highlighting
   Plug 'leafgarland/typescript-vim'
