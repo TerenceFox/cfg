@@ -119,6 +119,8 @@ if [ $TILIX_ID ] || [ $VTE_VERSION ] ; then source /etc/profile.d/vte.sh; fi # U
 
 # Additional path directories
 export PATH="/home/terence/.local/bin:$PATH"
+export PATH="/Users/terencefox/.asdf/installs/golang/1.19.2/packages/bin:$PATH"
+export PATH=/Users/terencefox/.local/bin:$PATH
 
 # Switch prompt to powerline-shell
 function _update_ps1() {
@@ -134,3 +136,7 @@ fi
 if [[ -n "$PS1" ]] && [[ -z "$TMUX" ]] && [[ -n "$SSH_CONNECTION" ]]; then   
   tmux attach-session -t ssh_tmux || tmux new-session -s ssh_tmux 
 fi
+
+
+. "$HOME/.cargo/env"
+export PATH="/Applications/Postgres.app/Contents/Versions/latest/bin:$PATH"

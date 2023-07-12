@@ -5,39 +5,14 @@ endif
 set encoding=utf-8
 
 call plug#begin()
-  " Language Client
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
-  let g:coc_global_extensions = [
-              \ 'coc-emmet', 
-              \ 'coc-css', 
-              \ 'coc-html', 
-              \ 'coc-json',
-              \ 'coc-prettier', 
-              \ 'coc-tsserver', 
-              \ 'coc-omnisharp',
-              \ 'coc-deno',
-              \ 'coc-go',
-              \ 'coc-graphql']
-  " TypeScript Highlighting
-  Plug 'leafgarland/typescript-vim'
-  Plug 'peitalin/vim-jsx-typescript'
-  Plug 'jparise/vim-graphql' 
   Plug 'junegunn/vim-easy-align'
-  " Airline
-  Plug 'vim-airline/vim-airline'
-  Plug 'vim-airline/vim-airline-themes'
   " Bracket completion
   Plug 'jiangmiao/auto-pairs'
-  " File Explorer with Icons
-  Plug 'scrooloose/nerdtree'
-  Plug 'ryanoasis/vim-devicons'
   " File Search
   Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
   Plug 'junegunn/fzf.vim'
   " Vim-Wiki
   Plug 'vimwiki/vimwiki'
-  " JSX support
-  Plug 'maxmellon/vim-jsx-pretty'
 call plug#end()
 
 " Enable theming support
@@ -48,23 +23,8 @@ endif
 " Theme
 syntax enable
 set background=dark
-colorscheme solarized
 set number
 let mapleader = ","
-let g:NERDTreeShowHidden = 1
-let g:NERDTreeMinimalUI = 1
-let g:NERDTreeIgnore = []
-let g:NERDTreeStatusline = ''
-
-" Toggle NerdTree
-nnoremap <silent> <c-a> :call NERDTreeToggleAndRefresh()<CR>
-
-function NERDTreeToggleAndRefresh()
-  :NERDTreeToggle
-  if g:NERDTree.IsOpen()
-    :NERDTreeRefreshRoot
-  endif
-endfunction
 
 " Tab sanity
 set expandtab
@@ -81,34 +41,8 @@ autocmd Filetype json setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 autocmd Filetype javascript setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 autocmd Filetype typescript setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab
 autocmd FileType make setlocal noexpandtab
+autocmd Filetype go setlocal tabstop=4 shiftwidth=4 noexpandtab
 
-" Prettier command to format butter
-nnoremap <Leader>f :CocCommand prettier.formatFile<CR>
-
-" use <tab> for trigger completion and navigate to the next complete item
-function! CheckBackspace() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-inoremap <silent><expr> <Tab>
-      \ coc#pum#visible() ? coc#pum#next(1) :
-      \ CheckBackspace() ? "\<Tab>" :
-      \ coc#refresh()
-
-" Make <CR> auto-select the first completion item and notify coc.nvim to
-" format on enter, <cr> could be remapped by other vim plugin
-inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
-
-" GoTo code navigation.
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gdt :call CocAction('jumpDefinition', 'tabe')<CR>
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gyt :call CocAction('jumpTypeDefinition', 'tabe')<CR>
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> git :call CocAction('jumpImplmentation', 'tabe')<CR>
-nmap <silent> gr <Plug>(coc-references)
-nmap <silent> grt :call CocAction('jumpReferences', 'tabe')<CR>
 
 " Fuzzy File Finder open from popup
 nnoremap <c-p> :FZF<CR>
@@ -172,21 +106,3 @@ autocmd FileChangedShellPost *
 
 " Copy/paste in Windows
 set clipboard^=unnamed,unnamedplus
-
-" Vimwiki settings
-set nocompatible
-filetype plugin on
-syntax on
-let g:vimwiki_list = [{'path': '~/wiki/',
-                      \ 'syntax': 'markdown', 'ext': '.md'}]
-command! Diary VimwikiDiaryIndex
-
-augroup vimwikigroup
-    autocmd!
-    " automatically update links on read diary
-    autocmd BufRead,BufNewFile diary.md VimwikiDiaryGenerateLinks
-augroup end
-
-" Prettify JSX
-let g:vim_jsx_pretty_colorful_config = 1
-
